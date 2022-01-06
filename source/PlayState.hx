@@ -350,8 +350,10 @@ class PlayState extends MusicBeatState
 		{
 			remove(i);
 		}
+                #if FEATURE_LUAMODCHART
 		if (luaModchart != null)
 			luaModchart.die();
+                #end
 		songScoreDef = 0;
 		songScore = 0;
 		unspawnNotes = [];
@@ -668,20 +670,8 @@ class PlayState extends MusicBeatState
 			add(coolingVideo);
 
 			Debug.logTrace("starting vis");
-			if (coolingHandler == null)
-			{
-				coolingHandler = new MP4Handler();
-				coolingHandler.playMP4(Paths.video('coolingVisualizer'), null, coolingVideo, false, false, true);
-			}
-			else
-			{
-				coolingVideo.loadGraphic(coolingHandler.bitmap.bitmapData);
-
-				coolingVideo.setGraphicSize(945, 472);
-				var perecentSupposed = (FlxG.sound.music.time / songMultiplier) / (FlxG.sound.music.length / songMultiplier);
-				coolingHandler.bitmap.seek(perecentSupposed); // I laughed my ass off so hard when I found out this was a fuckin PERCENTAGE
-				coolingHandler.bitmap.resume();
-			}
+			coolingHandler = new BrowserVideoPlayer();
+			coolingHandler.playVideo('coolingVisualizer');
 			coolingVideo.alpha = 0;
 		}
 
