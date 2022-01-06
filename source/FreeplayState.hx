@@ -275,8 +275,9 @@ class FreeplayState extends MusicBeatState
 
 				FreeplayState.songData.set(songId, diffs);
 				trace('loaded diffs for ' + songId);
-				FreeplayState.songs.push(meta);		
-                    }
+				FreeplayState.songs.push(meta);
+                                LoadingScreen.progress = Math.round((i / list.length) * 100);	
+                 }
 	}
 
 	public function addSong(songName:String, weekNum:Int, songCharacter:String)
