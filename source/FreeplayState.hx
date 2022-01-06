@@ -654,6 +654,7 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
                 #else
                         FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
+                #end
 		#end
 
 		var hmm;
