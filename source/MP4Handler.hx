@@ -1,3 +1,4 @@
+#if desktop
 package;
 
 import flixel.graphics.FlxGraphic;
@@ -193,3 +194,4 @@ class MP4Handler
 			bitmap.volume = 0;
 	}
 }
+#end
