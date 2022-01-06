@@ -254,44 +254,30 @@ class FreeplayState extends MusicBeatState
 				diffsThatExist.push("Easy");
 			if (Paths.doesTextAssetExist(Paths.json('songs/$songId/$songId')))
 				diffsThatExist.push("Normal");
-			if (Paths.doesTextAssetExist(Paths.json('songs/$songId/$songId-funky')))
-				diffsThatExist.push("Funky");
 
 			if (diffsThatExist.length == 0)
 			{
 				Debug.displayAlert(meta.songName + " Chart", "No difficulties found for chart, skipping.");
 			}
-			else
-			{
 			#else
 			diffsThatExist = ["Easy", "Normal", "Hard"];
 			#end
-				if (diffsThatExist.contains("Easy"))
-					FreeplayState.loadDiff(0, songId, diffs);
-				if (diffsThatExist.contains("Normal"))
-					FreeplayState.loadDiff(1, songId, diffs);
-				if (diffsThatExist.contains("Hard"))
-					FreeplayState.loadDiff(2, songId, diffs);
-				if (diffsThatExist.contains("Funky"))
-					FreeplayState.loadDiff(3, songId, diffs);
-				meta.diffs = diffsThatExist;
 
-				if (diffsThatExist.length != 3)
-					trace("I ONLY FOUND " + diffsThatExist);
+			if (diffsThatExist.contains("Easy"))
+				FreeplayState.loadDiff(0, songId, diffs);
+			if (diffsThatExist.contains("Normal"))
+				FreeplayState.loadDiff(1, songId, diffs);
+			if (diffsThatExist.contains("Hard"))
+				FreeplayState.loadDiff(2, songId, diffs);
 
-				FreeplayState.songData.set(songId, diffs);
-				trace('loaded diffs for ' + songId);
-				FreeplayState.songs.push(meta);
+			meta.diffs = diffsThatExist;
 
-				sys.thread.Thread.create(() ->
-				{
-					FlxG.sound.cache(Paths.inst(songId));
-				});
-			}
-			if (i != 0)
-			{
-				LoadingScreen.progress = Math.round((i / list.length) * 100);
-			}
+			if (diffsThatExist.length != 3)
+				trace("I ONLY FOUND " + diffsThatExist);
+
+			FreeplayState.songData.set(songId, diffs);
+			trace('loaded diffs for ' + songId);
+			FreeplayState.songs.push(meta);
 		}
 	}
 
