@@ -3,7 +3,7 @@ import flixel.FlxSprite;
 
 class StoryScene extends MusicBeatState
 {
-	public var handler:MP4Handler;
+	public var handler:BrowserVideoPlayer;
 
 	public var path:String = "";
 
@@ -15,7 +15,7 @@ class StoryScene extends MusicBeatState
 
 	public override function load()
 	{
-		handler = new MP4Handler();
+		handler = new BrowserVideoPlayer();
 	}
 
 	public override function update(elapsed)
@@ -30,7 +30,7 @@ class StoryScene extends MusicBeatState
 
 	public override function create()
 	{
-		handler.playMP4(Paths.video(path));
+		handler.playVideo(path);
 		handler.finishCallback = function()
 		{
 			switchState(new BruhADiagWindow(PlayState.SONG.songId));
