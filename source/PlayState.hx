@@ -1973,14 +1973,6 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(skipText, {alpha: 1}, 0.2);
 			add(skipText);
 		}
-
-		if (Stage.curStage == "hexw" && SONG.songId.toLowerCase() == "cooling")
-		{
-			var perecentSupposed = (FlxG.sound.music.time / songMultiplier) / (FlxG.sound.music.length / songMultiplier);
-			coolingHandler.bitmap.seek(perecentSupposed); // I laughed my ass off so hard when I found out this was a fuckin PERCENTAGE
-			Debug.logTrace("doing the thing");
-			FlxTween.tween(coolingVideo, {alpha: 1}, 1);
-		}
 	}
 
 	var debugNum:Int = 0;
@@ -2331,11 +2323,6 @@ class PlayState extends MusicBeatState
 						vocals.pause();
 			}
 
-			if (Stage.curStage == "hexw" && songStarted && SONG.songId.toLowerCase() == "cooling")
-			{
-				coolingHandler.bitmap.pause();
-			}
-
 			#if FEATURE_DISCORD
 			DiscordClient.changePresence("PAUSED on "
 				+ SONG.song
@@ -2378,13 +2365,6 @@ class PlayState extends MusicBeatState
 			if (FlxG.sound.music != null && !startingSong)
 			{
 				resyncVocals();
-			}
-
-			if (Stage.curStage == "hexw" && songStarted && SONG.songId.toLowerCase() == "cooling")
-			{
-				var perecentSupposed = (FlxG.sound.music.time / songMultiplier) / (FlxG.sound.music.length / songMultiplier);
-				coolingHandler.bitmap.seek(perecentSupposed); // I laughed my ass off so hard when I found out this was a fuckin PERCENTAGE
-				coolingHandler.bitmap.resume();
 			}
 
 			if (startTimer != null)
