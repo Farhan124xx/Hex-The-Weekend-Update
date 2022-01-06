@@ -2952,11 +2952,6 @@ class PlayState extends MusicBeatState
 			// Conductor.songPosition = FlxG.sound.music.time;
 			Conductor.songPosition += FlxG.elapsed * 1000;
 			Conductor.rawPosition = FlxG.sound.music.time;
-			if (coolingVideo != null)
-			{
-				if (!coolingHandler.bitmap.isPlaying && !paused && !endingSong)
-					coolingHandler.bitmap.resume();
-			}
 			// sync
 			/*@:privateAccess
 				{
