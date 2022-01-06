@@ -11,7 +11,7 @@ using StringTools;
 
 class BrowserVideoPlayer extends FlxBasic
 {
-	public static var androidPath:String = 'file:///android_asset/';
+	public static var androidPath:String = 'file:///android_asset/assets/video/';
 
         public var finishCallback:Void->Void = null;
 
