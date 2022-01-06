@@ -11,11 +11,18 @@ using StringTools;
 
 class BrowserVideoPlayer extends FlxBasic
 {
-	public static var androidPath:String = 'file:///android_asset/assets/videos/';
+	public static var androidPath:String = 'file:///android_asset/';
 
         public var finishCallback:Void->Void = null;
 
-	public function new(source:String)
+        public var stateCallback:FlxState;
+
+	public function new()
+	{
+		super();
+	}
+
+        public function playVideo(source:String)
 	{
 		super();
 
@@ -27,9 +34,13 @@ class BrowserVideoPlayer extends FlxBasic
 
 	function onClose()
 	{
-		if (finishCallback != null)
-		{
+                if (finishCallback != null)
+                {
 			finishCallback();
+		}
+		else if (stateCallback != null)
+		{
+			LoadingState.loadAndSwitchState(stateCallback);
 		}
 	}
 
