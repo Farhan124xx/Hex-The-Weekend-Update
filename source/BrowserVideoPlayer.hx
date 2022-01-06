@@ -1,9 +1,7 @@
 #if android
 package;
 
-import flixel.FlxG;
-import flixel.FlxBasic;
-
+import flixel.FlxState;
 import extension.webview.WebView;
 
 using StringTools;
