@@ -1,7 +1,6 @@
 #if android
 package;
 
-import flixel.text.FlxText;
 import flixel.FlxG;
 import flixel.FlxBasic;
 
@@ -9,7 +8,7 @@ import extension.webview.WebView;
 
 using StringTools;
 
-class BrowserVideoPlayer extends FlxBasic
+class BrowserVideoPlayer
 {
 	public static var androidPath:String = 'file:///android_asset/assets/video/';
 
@@ -19,13 +18,11 @@ class BrowserVideoPlayer extends FlxBasic
 
 	public function new()
 	{
-		super();
+
 	}
 
         public function playVideo(source:String)
 	{
-		super();
-
 		WebView.onClose = onClose;
 		WebView.onURLChanging= onURLChanging;
 
