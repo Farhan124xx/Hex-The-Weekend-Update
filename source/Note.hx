@@ -23,7 +23,9 @@ class Note extends FlxSprite
 
 	public var charterSelected:Bool = false;
 
+        #if FEATURE_LUAMODCHART
 	public var LuaNote:LuaNote;
+        #end
 
 	public var rStrumTime:Float = 0;
 
