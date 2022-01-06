@@ -9,7 +9,9 @@ import flixel.util.FlxColor;
 #if polymod
 import polymod.format.ParseRules.TargetSignatureElement;
 #end
+#if FEATURE_LUAMODCHART
 import LuaClass.LuaNote;
+#end
 import PlayState;
 
 using StringTools;
