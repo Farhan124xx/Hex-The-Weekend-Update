@@ -257,12 +257,6 @@ class FreeplayState extends MusicBeatState
 			if (Paths.doesTextAssetExist(Paths.json('songs/$songId/$songId-funky')))
 				diffsThatExist.push("Funky");
 
-			if (diffsThatExist.length == 0)
-			{
-				Debug.displayAlert(meta.songName + " Chart", "No difficulties found for chart, skipping.");
-			}
-			else
-			{
 			#else
 			diffsThatExist = ["Easy", "Normal", "Hard"];
 			#end
@@ -281,13 +275,8 @@ class FreeplayState extends MusicBeatState
 
 				FreeplayState.songData.set(songId, diffs);
 				trace('loaded diffs for ' + songId);
-				FreeplayState.songs.push(meta);
-			}
-			if (i != 0)
-			{
-				LoadingScreen.progress = Math.round((i / list.length) * 100);
-			}
-		}
+				FreeplayState.songs.push(meta);		
+                    }
 	}
 
 	public function addSong(songName:String, weekNum:Int, songCharacter:String)
