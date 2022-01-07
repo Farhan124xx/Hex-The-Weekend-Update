@@ -48,7 +48,6 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		MasterObjectLoader.mutex = new Mutex();
 		// TODO: Refactor this to use OpenFlAssets.
 		#if FEATURE_FILESYSTEM
 		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
